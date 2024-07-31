@@ -1,0 +1,150 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 8,
+			"minor" : 6,
+			"revision" : 3,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 134.0, 178.0, 772.0, 527.0 ],
+		"bglocked" : 0,
+		"openinpresentation" : 0,
+		"default_fontsize" : 12.0,
+		"default_fontface" : 0,
+		"default_fontname" : "Lato Italic",
+		"gridonopen" : 1,
+		"gridsize" : [ 15.0, 15.0 ],
+		"gridsnaponopen" : 1,
+		"objectsnaponopen" : 1,
+		"statusbarvisible" : 2,
+		"toolbarvisible" : 1,
+		"lefttoolbarpinned" : 0,
+		"toptoolbarpinned" : 0,
+		"righttoolbarpinned" : 0,
+		"bottomtoolbarpinned" : 0,
+		"toolbars_unpinned_last_save" : 0,
+		"tallnewobj" : 0,
+		"boxanimatetime" : 200,
+		"enablehscroll" : 1,
+		"enablevscroll" : 1,
+		"devicewidth" : 0.0,
+		"description" : "",
+		"digest" : "",
+		"tags" : "",
+		"style" : "",
+		"subpatcher_template" : "Cardinal",
+		"assistshowspatchername" : 0,
+		"boxes" : [ 			{
+				"box" : 				{
+					"fontsize" : 10.0,
+					"id" : "obj-23",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 390.0, 450.0, 31.0, 20.0 ],
+					"text" : "out 4"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontsize" : 10.0,
+					"id" : "obj-22",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 270.0, 450.0, 31.0, 20.0 ],
+					"text" : "out 3"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontsize" : 10.0,
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 150.0, 450.0, 31.0, 20.0 ],
+					"text" : "out 2"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontsize" : 10.0,
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 30.0, 450.0, 31.0, 20.0 ],
+					"text" : "out 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "Buffer schtzngrm(\"schtzngrm\");\r\n\r\nParam layerPositionOfXCoordinates (default = 0, min = 0, max = 3);\nParam layerPositionOfYCoordinates (default = 1, min = 0, max = 3);\nParam sizeOfDrawingRectangleXCoordinate (default = 520, min = 0);\nParam sizeOfDrawingRectangleYCoordinate (default = 520, min = 0);\r\nHistory imageXCoordinate;\nHistory imageYCoordinate;\r\nHistory resetDrawingPosition;\r\nHistory resetDrawingCounter;\r\n\r\nData imageHistory(4, 2);\nParam interpTimeInSamples (default = 50, min = 1);\nParam interpMode (default = 0, min = 0, max = 4);\nParam numberOfLoop (default = 1, min = 1);\r\n\r\nHistory calculateWithThresholdOfZeroCrossing(-1);\r\nData allPositionOfZeroCrossing(96000, 1);\r\nHistory zeroCrossingForStartSelection(-1);\r\nHistory zeroCrossingForEndSelection(-1);\r\n\r\nData sumOfSample(4, 1);\r\nData voiceGate(26, 1);\r\nData deductionPrevIndexCheckpoint(26, 4);\nData deductionIndexCheckpoint(26, 4);\nData volumeIndexCheckpoint(26, 4);\r\nHistory playVoice(-1);\r\nParam switchToVoice (default = 0, min = 0, max = 25);\r\nParam switchToLayer (default = 0, min = 0, max = 3);\r\nHistory resetAndSyncTotalVoices(0);\r\n\r\n// GLOBAL CONSTANTS\ntotalNumberOfNumber = 156;\ntotalNumberOfAlphabet = 26;\ntotalNumberOfWaveform = 78;\ntotalNumberOfLayer = 4;\nstartingIndexOfVolumeTime = 0;\nstartingIndexOfDeductionTime = 26;\nstartingIndexOfMinimalDeduction = 52;\nstartingIndexOfMaximalDeduction = 78;\nstartingIndexOfSelectionStart = 104;\nstartingIndexOfSelectionEnd = 130;\r\nstartingChannelIndexOfWaveformZeroBased = 1;\r\nstartingChannelIndexOfWaveformNonZeroBased = 2;\nstartingChannelIndexOfVolumeEnvelope = 0;\nstartingChannelIndexOfDeductionEnvelope = 26;\nstartingChannelIndexOfLoopEnvelope = 52;\r\n\r\nfor(j = 0; j < totalNumberOfAlphabet; j += 1){\n\tif(peek(voiceGate, j, 0) != 0){\n\t\tfor(i = 0; i < totalNumberOfLayer; i += 1){\n\t\t\t\n\t\t\tnumberIndexingBasis = i * totalNumberOfNumber + j;\n\t\t\n\t\t\tvolumeTime = peek(schtzngrm, numberIndexingBasis + startingIndexOfVolumeTime, 0);\n\t\t\tdeductionTime = peek(schtzngrm, numberIndexingBasis + startingIndexOfDeductionTime, 0);\n\t\t\tminimalDeduction = peek(schtzngrm, numberIndexingBasis + startingIndexOfMinimalDeduction, 0);\n\t\t\tmaximalDeduction = peek(schtzngrm, numberIndexingBasis + startingIndexOfMaximalDeduction, 0);\n\t\t\tstartSelection = peek(schtzngrm, numberIndexingBasis + startingIndexOfSelectionStart, 0);\n\t\t\tendSelection = peek(schtzngrm, numberIndexingBasis + startingIndexOfSelectionEnd, 0);\n\t\t\t\n\t\t\tselectionIntersection = endSelection - startSelection;\n\t\t\tdeductionIntersection = maximalDeduction - minimalDeduction;\n\t\t\t\t\t\t\n\t\t\tdeductionEnvelopeIndex = peek(deductionPrevIndexCheckpoint, j, i);\n\t\t\tdeductionEnvelopeIndex += deductionTime;\n\t\t\tpoke(deductionPrevIndexCheckpoint, deductionEnvelopeIndex, j, i);\n\t\t\tdeductionEnvelopeIndexMod = startSelection + (deductionEnvelopeIndex % selectionIntersection);\n\t\n\t\t\twaveformIndexingBasis = i * totalNumberOfWaveform + j;\n\n\t\t\tdeductionEnvelopeValue = peek(schtzngrm, deductionEnvelopeIndexMod, waveformIndexingBasis + startingChannelIndexOfWaveformZeroBased + startingChannelIndexOfDeductionEnvelope);\t\n\t\t\tscaledDeductionValue = minimalDeduction + deductionIntersection * deductionEnvelopeValue;\n\t\t\n\t\t\tdeductionEnvelopeNextIndex = peek(deductionIndexCheckpoint, j, i);\t\t\n\t\t\tdeductionEnvelopeNextIndex += scaledDeductionValue;\n\t\t\tpoke(deductionIndexCheckpoint, deductionEnvelopeNextIndex, j, i);\n\t\t\tdeductionEnvelopeNextIndexMod = startSelection + (deductionEnvelopeNextIndex % selectionIntersection);\n\n\t\t\tvolumeEnvelopeNextIndex = peek(volumeIndexCheckpoint, j, i);\n\t\t\tvolumeEnvelopeNextIndex += scaledDeductionValue + volumeTime;\n\t\t\tpoke(volumeIndexCheckpoint, volumeEnvelopeNextIndex, j, i);\n\t\t\tvolumeEnvelopeNextIndexMod = startSelection + (volumeEnvelopeNextIndex % selectionIntersection);\n\n\t\t\tif(volumeEnvelopeNextIndex / selectionIntersection >= numberOfLoop){\n\t\t\t\tpoke(voiceGate, 0, j, 0);\n\t\t\t\t\n\t\t\t\tfor(k = 0; k < totalNumberOfAlphabet; k += 1){\n\t\t\t\t\tpoke(deductionPrevIndexCheckpoint, 0, k, i);\n\t\t\t\t\tpoke(deductionIndexCheckpoint, 0, k, i);\n\t\t\t\t\tpoke(volumeIndexCheckpoint, 0, k, i);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tloopEnvelopeValue = peek(schtzngrm, deductionEnvelopeNextIndexMod, waveformIndexingBasis + startingChannelIndexOfWaveformZeroBased + startingChannelIndexOfLoopEnvelope);\n\t\t\tvolumeEnvelopeValue = peek(schtzngrm, volumeEnvelopeNextIndexMod, waveformIndexingBasis + startingChannelIndexOfWaveformZeroBased + startingChannelIndexOfVolumeEnvelope);\n\t\n\t\t\tpoke(sumOfSample, peek(sumOfSample, i, 0) + loopEnvelopeValue * volumeEnvelopeValue, i, 0);\n\t\t}\n\t}\n}\n\nout1 = peek(sumOfSample, 0, 0);\nout2 = peek(sumOfSample, 1, 0);\nout3 = peek(sumOfSample, 2, 0);\nout4 = peek(sumOfSample, 3, 0);\r\n\r\nfor(l = 0; l < dim(sumOfSample); l += 1){\n\tpoke(sumOfSample, 0, l, 0);\n}\r\n\r\nif(playVoice >= 0){\n\tpoke(voiceGate, 1, playVoice, 0);\n\tplayVoice = -1;\n}\r\nif(resetDrawingPosition >= 0){\r\n\tchannelIndexOfLoopEnvelopeX = startingChannelIndexOfWaveformZeroBased + startingChannelIndexOfLoopEnvelope + switchToVoice + layerPositionOfXCoordinates * totalNumberOfWaveform;\n\tchannelIndexOfLoopEnvelopeY = startingChannelIndexOfWaveformZeroBased + startingChannelIndexOfLoopEnvelope + switchToVoice + layerPositionOfYCoordinates * totalNumberOfWaveform;\n\t\r\n\tfor(i = 0; i < dim(schtzngrm); i += 1){\n\t\tpoke(schtzngrm, 0, i, channelIndexOfLoopEnvelopeX);\n\t\tpoke(schtzngrm, 0, i, channelIndexOfLoopEnvelopeY);\n\t}\r\n\tresetDrawingCounter = 1;\r\n\tresetDrawingPosition = -1;\n}\nif(imageXCoordinate >= 0 && imageYCoordinate >= 0){\r\n\tchannelIndexOfLoopEnvelopeX = startingChannelIndexOfWaveformZeroBased + startingChannelIndexOfLoopEnvelope + switchToVoice + layerPositionOfXCoordinates * totalNumberOfWaveform;\n\tchannelIndexOfLoopEnvelopeY = startingChannelIndexOfWaveformZeroBased + startingChannelIndexOfLoopEnvelope + switchToVoice + layerPositionOfYCoordinates * totalNumberOfWaveform;\r\n\t\r\n\tscaledImageXCoordinate = 2 * imageXCoordinate / sizeOfDrawingRectangleXCoordinate - 1;\n\tscaledImageYCoordinate = 2 * imageYCoordinate / sizeOfDrawingRectangleYCoordinate - 1;\n\tgetNextIndex = counter(interpTimeInSamples, resetDrawingCounter, dim(schtzngrm));\n\tresetDrawingCounter = 0;\r\n\t\n\tfor(i = dim(imageHistory) - 1; i > 0; i -= 1){\n\t\tpoke(imageHistory, peek(imageHistory, i - 1, 0), i, 0);\n\t\tpoke(imageHistory, peek(imageHistory, i - 1, 1), i, 1);\n    }\n\n\tpoke(imageHistory, scaledImageXCoordinate, 0, 0);\n\tpoke(imageHistory, scaledImageYCoordinate, 0, 1);\n\t\n\tfor(i = 0; i < interpTimeInSamples; i += 1){\n\t\tinterpFactor = 1 / interpTimeInSamples * i;\n\t\t\n\t\tinterpX = 0;\n\t\tinterpY = 0;\r\n\t\t\n\t\tif(interpMode == 0){\n\t \t\tinterpX = interp(interpFactor, peek(imageHistory, 1, 0), peek(imageHistory, 0, 0));\n\t\t\tinterpY = interp(interpFactor, peek(imageHistory, 1, 1), peek(imageHistory, 0, 1));\n\t\t} else if(interpMode == 1){\n\t \t\tinterpX = interp(interpFactor, peek(imageHistory, 1, 0), peek(imageHistory, 0, 0), mode = \"linear\");\n\t\t\tinterpY = interp(interpFactor, peek(imageHistory, 1, 1), peek(imageHistory, 0, 1), mode = \"linear\");\n\t\t} else if(interpMode == 2){\n\t \t\tinterpX = interp(interpFactor, peek(imageHistory, 1, 0), peek(imageHistory, 0, 0), mode = \"cosine\");\n\t\t\tinterpY = interp(interpFactor, peek(imageHistory, 1, 1), peek(imageHistory, 0, 1), mode = \"cosine\");\n\t\t} else if(interpMode == 3){\n\t \t\tinterpX = interp(interpFactor, peek(imageHistory, 3, 0), peek(imageHistory, 2, 0), peek(imageHistory, 1, 0), peek(imageHistory, 0, 0), mode = \"spline\");\n\t\t\tinterpY = interp(interpFactor, peek(imageHistory, 3, 1), peek(imageHistory, 2, 1), peek(imageHistory, 1, 1), peek(imageHistory, 0, 1), mode = \"spline\");\t\t\t\n\t\t} else if(interpMode == 4){\n\t \t\tinterpX = interp(interpFactor, peek(imageHistory, 3, 0), peek(imageHistory, 2, 0), peek(imageHistory, 1, 0), peek(imageHistory, 0, 0), mode = \"cubic\");\n\t\t\tinterpY = interp(interpFactor, peek(imageHistory, 3, 1), peek(imageHistory, 2, 1), peek(imageHistory, 1, 1), peek(imageHistory, 0, 1), mode = \"cubic\");\t\t\t\n\t\t}\n\t\t\n\t\tpoke(schtzngrm, interpX, getNextIndex + i - interpTimeInSamples, channelIndexOfLoopEnvelopeX);\n\t\tpoke(schtzngrm, interpY, getNextIndex + i - interpTimeInSamples, channelIndexOfLoopEnvelopeY);\n\t}\n\t\n\timageXCoordinate = -1; \n\timageYCoordinate = -1;\r\n}\nif(resetAndSyncTotalVoices != 0){\n\tfor(i = 0; i < totalNumberOfLayer; i += 1){\n\t\tfor(j = 0; j < totalNumberOfAlphabet; j += 1){\n\t\t\tpoke(deductionPrevIndexCheckpoint, 0, j, i);\n\t\t\tpoke(deductionIndexCheckpoint, 0, j, i);\n\t\t\tpoke(volumeIndexCheckpoint, 0, j, i);\n\t\t}\n\t}\n\tresetAndSyncTotalVoices = 0;\n}\r\n\nif(calculateWithThresholdOfZeroCrossing >= 0){\r\n\tsmallCounter = 0;\r\n\tchannelIndexOfLoopEnvelope = startingChannelIndexOfWaveformZeroBased + startingChannelIndexOfLoopEnvelope + switchToVoice + switchToLayer * totalNumberOfWaveform;\n\r\n\tfor(i = 0; i < dim(schtzngrm); i += 1){\r\n\t\tpoke(allPositionOfZeroCrossing, 0, i, 0);\r\n\t\t\r\n\t\tif(calculateWithThresholdOfZeroCrossing >= peek(schtzngrm, i, channelIndexOfLoopEnvelope) && -1*calculateWithThresholdOfZeroCrossing <= peek(schtzngrm, i, channelIndexOfLoopEnvelope)){\r\n\t\t\tpoke(allPositionOfZeroCrossing, i, smallCounter, 0);\r\n\t\t\tsmallCounter += 1;\r\n\t\t}\r\n\t}\r\n\r\n\tcalculateWithThresholdOfZeroCrossing = -1;\r\n}\r\nif(zeroCrossingForStartSelection >= 0){\r\n\tpoke(schtzngrm, peek(allPositionOfZeroCrossing, zeroCrossingForStartSelection, 0), switchToLayer * totalNumberOfNumber + startingIndexOfSelectionStart + switchToVoice);\r\n\tzeroCrossingForStartSelection = -1;\r\n}\r\nif(zeroCrossingForEndSelection >= 0){\r\n\tpoke(schtzngrm, peek(allPositionOfZeroCrossing, zeroCrossingForEndSelection, 0), switchToLayer * totalNumberOfNumber + startingIndexOfSelectionEnd + switchToVoice);\r\n\tzeroCrossingForEndSelection = -1;\t\r\n}",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 10.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 1,
+					"numoutlets" : 4,
+					"outlettype" : [ "", "", "", "" ],
+					"patching_rect" : [ 30.0, 30.0, 375.0, 405.0 ]
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-2", 0 ],
+					"source" : [ "obj-3", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-22", 0 ],
+					"source" : [ "obj-3", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-23", 0 ],
+					"source" : [ "obj-3", 3 ]
+				}
+
+			}
+ ],
+		"default_bgcolor" : [ 0.52549, 0.062745, 0.003922, 1.0 ],
+		"color" : [ 1.0, 1.0, 1.0, 0.89 ],
+		"elementcolor" : [ 0.784314, 0.145098, 0.023529, 1.0 ],
+		"accentcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+		"selectioncolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
+		"textcolor" : [ 0.52549, 0.062745, 0.003922, 1.0 ],
+		"textcolor_inverse" : [ 1.0, 1.0, 1.0, 1.0 ],
+		"patchlinecolor" : [ 0.475135, 0.293895, 0.251069, 0.9 ],
+		"bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+		"editing_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+		"bgfillcolor_type" : "gradient",
+		"bgfillcolor_color1" : [ 0.92549, 0.364706, 0.341176, 1.0 ],
+		"bgfillcolor_color2" : [ 0.341176, 0.027451, 0.023529, 1.0 ],
+		"bgfillcolor_color" : [ 0.290196, 0.309804, 0.301961, 1.0 ]
+	}
+
+}

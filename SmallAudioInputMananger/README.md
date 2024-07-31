@@ -1,0 +1,3 @@
+## SmallAudioInputMananger
+
+Documentation in progress...
