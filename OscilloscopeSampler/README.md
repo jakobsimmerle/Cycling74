@@ -2,31 +2,18 @@
 
 ![OscilloscopeSampler](resources/image_0.png)
 
+[========]
+
 Short overview:
-1st Column - volumeTime  
-2nd Column - deductionTime  
-3rd Column - minimalDeduction  
-4th Column - maximalDeduction  
-5th Column - selectionStart  
-6th Column - selectionEnd  
-7th Column - volumeEnvelope  
-8th Column - deductionEnvelope  
-9th Column - loopEnvelope  
-
-
-volumeTime: 
-
-
-NB:
-1. Column - volumeTime
-2. Column - deductionTime
-3. Column - minimalDeduction
-4. Column - maximalDeduction
-5. Column - selectionStart
-6. Column - selectionEnd
-7. Column - volumeEnvelope
-8. Column - deductionEnvelope
-9. Column - loopEnvelope
+1st C - volumeTime  
+2nd C - deductionTime  
+3rd C - minimalDeduction  
+4th C - maximalDeduction  
+5th C - selectionStart  
+6th C - selectionEnd  
+7th C - volumeEnvelope  
+8th C - deductionEnvelope  
+9th C - loopEnvelope  
 
 CH: 0  
 I: 0 - 25 volumeTime  
