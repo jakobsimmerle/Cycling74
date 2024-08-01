@@ -2,9 +2,10 @@
 
 ![OscilloscopeSampler](resources/image_0.png)
 ----
-#### **_1. Short overview_**  
+#### **1. Short overview**  
 
-(C... Column)  
+Starting from the left side (C... Column):
+
 1st C. - volumeTime  
 2nd C. - deductionTime  
 3rd C. - minimalDeduction  
@@ -16,8 +17,9 @@
 9th C. - loopEnvelope  
     
     
-    
-CH: 0  
+This is the organisation of the Buffer schtzngrm (Ch... Channel, I... Index):
+
+**Ch**: 0  
 I: 0 - 25 volumeTime  
 I: 26 - 51 deductionTime  
 I: 52 - 77 minimalDeduction  
@@ -46,18 +48,18 @@ I: 546 - 571 maximalDeduction
 I: 572 - 597 selectionStart  
 I: 598 - 623 selectionEnd  
 
-CH: 1 - 26 volumeEnvelope  
-CH: 27 - 52 deductionEnvelope  
-CH: 53 - 78 loopEnvelope  
+**Ch**: 1 - 26 volumeEnvelope  
+**Ch**: 27 - 52 deductionEnvelope  
+**Ch**: 53 - 78 loopEnvelope  
 
-CH: 79 - 104 volumeEnvelope  
-CH: 105 - 130 deductionEnvelope  
-CH: 131 - 156 loopEnvelope  
+**Ch**: 79 - 104 volumeEnvelope  
+**Ch**: 105 - 130 deductionEnvelope  
+**Ch**: 131 - 156 loopEnvelope  
 
-CH: 157 - 182 volumeEnvelope  
-CH: 183 - 208 deductionEnvelope  
-CH: 209 - 234 loopEnvelope  
+**Ch**: 157 - 182 volumeEnvelope  
+**Ch**: 183 - 208 deductionEnvelope  
+**Ch**: 209 - 234 loopEnvelope  
 
-CH: 235 - 260 volumeEnvelope  
-CH: 261 - 286 deductionEnvelope  
-CH: 287 - 312 loopEnvelope  
+**Ch**: 235 - 260 volumeEnvelope  
+**Ch**: 261 - 286 deductionEnvelope  
+**Ch**: 287 - 312 loopEnvelope  
