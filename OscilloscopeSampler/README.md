@@ -2,20 +2,20 @@
 
 ![OscilloscopeSampler](resources/image_0.png)
 
-[========]
+========
 
-#### Short overview  
+#### 1. Short overview  
 
-(C stands for Column)
-1st C - volumeTime  
-2nd C - deductionTime  
-3rd C - minimalDeduction  
-4th C - maximalDeduction  
-5th C - selectionStart  
-6th C - selectionEnd  
-7th C - volumeEnvelope  
-8th C - deductionEnvelope  
-9th C - loopEnvelope  
+(C... Column)  
+1st C. - volumeTime  
+2nd C. - deductionTime  
+3rd C. - minimalDeduction  
+4th C. - maximalDeduction  
+5th C. - selectionStart  
+6th C. - selectionEnd  
+7th C. - volumeEnvelope  
+8th C. - deductionEnvelope  
+9th C. - loopEnvelope  
     
     
     
