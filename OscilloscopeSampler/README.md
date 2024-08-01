@@ -3,7 +3,7 @@
 ![OscilloscopeSampler](resources/image_0.png)
 
 ### **1. Short overview**  
-----
+
 Starting from the left side (C... Column):
 
 1st C. - volumeTime  
