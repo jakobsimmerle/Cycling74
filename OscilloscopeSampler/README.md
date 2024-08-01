@@ -6,21 +6,41 @@
 
 Starting from the left side (C... Column):
 
-1st C. - volumeTime  
-2nd C. - deductionTime  
-3rd C. - minimalDeduction  
-4th C. - maximalDeduction  
-5th C. - selectionStart  
-6th C. - selectionEnd  
-7th C. - volumeEnvelope  
-8th C. - deductionEnvelope  
-9th C. - loopEnvelope  
+1st C.: volumeTime  
+2nd C.: deductionTime  
+3rd C.: minimalDeduction  
+4th C.: maximalDeduction  
+5th C.: selectionStart  
+6th C.: selectionEnd  
+7th C.: volumeEnvelope  
+8th C.: deductionEnvelope  
+9th C.: loopEnvelope  
 
+### **2. Parameters**
 
+Starting from the left side, up to down:
+
+clear: Clears the drawing area.
+read: Imports chosen external audio file and reads it into Buffer.
+write: Export Buffer to a external destination. It is recomendet to choose wav as 
+number: select voice to opterate on
+radiogroup: update/select Layer to operate on
+number: select threshold crossing
+number: select position of crossing for startSelection
+number: select position of crossing for endSelection
+button: reset and sync all voices
+button: reset selected LoopEnvelope
+number: number of Loops per play
+number: select interp mode
+number: select interp time
+number: select Layer to draw on X
+number: select Layer to draw on Y
+number: select size of drawing rectangle X
+number: select size of drawing rectangle Y
 
 ### **X. Schtzngrm**
 
-This is the organisation of the Buffer schtzngrm (Ch... Channel, I... Index):
+This is the organisation of the Buffer "schtzngrm" (Ch... Channel, I... Index):
 
 **Ch**: 0  
 I: 0 - 25 volumeTime  

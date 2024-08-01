@@ -5,6 +5,7 @@ var layerValue = 0;
 
 totalNumberOfNumber = 156;
 totalNumberOfAlphabet = 26;
+totalNumberOfVisibleWaveform = 52;
 totalNumberOfWaveform = 78;
 totalNumberOfLayer = 4;
 startingIndexOfVolumeTime = 0;
@@ -26,6 +27,9 @@ function initializePatch(){
 		
 		maxObj.maximum(schtzngrm.framecount());
     }
+	for(var i=0; i<totalNumberOfVisibleWaveform; i++){
+		p.getnamed("waveform_"+i).chanoffset(layerValue*totalNumberOfWaveform+startingChannelIndexOfWaveformNonZeroBased+i);
+	}
 }
 function storeValueOfNumber(numberObject){
 	schtzngrm.poke(1, layerValue * totalNumberOfNumber + Number(numberObject.maxobject.varname.substr(7)), numberObject.value);
@@ -37,7 +41,7 @@ function switchToLayer(layerValue){
 	for(var i=0; i<totalNumberOfNumber; i++){
 		p.getnamed("number_"+i).set(allValuesOfNumberOfCurrentLayer[i]);
 	}
-	for(var i=0; i<totalNumberOfWaveform; i++){
+	for(var i=0; i<totalNumberOfVisibleWaveform; i++){
 		p.getnamed("waveform_"+i).chanoffset(layerValue*totalNumberOfWaveform+startingChannelIndexOfWaveformNonZeroBased+i);
 	}
 }
