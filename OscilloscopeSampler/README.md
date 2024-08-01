@@ -2,7 +2,7 @@
 
 ![OscilloscopeSampler](resources/image_0.png)
 
-#### **1. Short overview**  
+### **1. Short overview**  
 
 Starting from the left side (C... Column):
 
@@ -15,8 +15,11 @@ Starting from the left side (C... Column):
 7th C. - volumeEnvelope  
 8th C. - deductionEnvelope  
 9th C. - loopEnvelope  
-    
-    
+
+
+
+### **X. Schtzngrm**
+
 This is the organisation of the Buffer schtzngrm (Ch... Channel, I... Index):
 
 **Ch**: 0  
