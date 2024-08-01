@@ -21,7 +21,7 @@ Starting from the left side (C... Column):
 Starting from the left side, up to down:
 
 clear: Clears the drawing area.
-read: Imports chosen external audio file and reads it into Buffer. It is recomented to import audio files based on [these rules](#x.-Schtzngrm).
+read: Imports chosen external audio file and reads it into Buffer. It is recomented to import audio files based on [these rules](#x-Schtzngrm).
 write: Export Buffer to a external destination.
 number: select voice to opterate on
 radiogroup: update/select Layer to operate on
