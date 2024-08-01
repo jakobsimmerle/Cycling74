@@ -2,9 +2,7 @@
 
 ![OscilloscopeSampler](resources/image_0.png)
 
-========
-
-#### 1. Short overview  
+#### **1. Short overview**  
 
 (C... Column)  
 1st C. - volumeTime  
