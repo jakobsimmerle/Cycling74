@@ -4,7 +4,8 @@
 
 [========]
 
-Short overview:
+#### Short overview  
+    C.. Column
 1st C - volumeTime  
 2nd C - deductionTime  
 3rd C - minimalDeduction  
@@ -14,7 +15,9 @@ Short overview:
 7th C - volumeEnvelope  
 8th C - deductionEnvelope  
 9th C - loopEnvelope  
-
+    
+    
+    
 CH: 0  
 I: 0 - 25 volumeTime  
 I: 26 - 51 deductionTime  
