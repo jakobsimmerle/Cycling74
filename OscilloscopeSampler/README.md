@@ -2,7 +2,7 @@
 ---
 ![OscilloscopeSampler](resources/image_0.png)
 
-### **1. Short overview**  
+#### **1. Short overview**  
 
 Starting from the left side (C... Column):
 
