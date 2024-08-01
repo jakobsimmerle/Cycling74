@@ -21,8 +21,8 @@ Starting from the left side (C... Column):
 Starting from the left side, up to down:
 
 clear: Clears the drawing area.
-read: Imports chosen external audio file and reads it into Buffer.
-write: Export Buffer to a external destination. It is recomendet to choose wav as 
+read: Imports chosen external audio file and reads it into Buffer. It is recomented to import audio files based on [these rules](#x.-Schtzngrm).
+write: Export Buffer to a external destination.
 number: select voice to opterate on
 radiogroup: update/select Layer to operate on
 number: select threshold crossing
@@ -43,33 +43,33 @@ number: select size of drawing rectangle Y
 This is the organisation of the Buffer "schtzngrm" (Ch... Channel, I... Index):
 
 **Ch**: 0  
-I: 0 - 25 volumeTime  
-I: 26 - 51 deductionTime  
-I: 52 - 77 minimalDeduction  
-I: 78 - 103 maximalDeduction  
-I: 104 - 129 selectionStart  
-I: 130 - 155 selectionEnd  
+**I**: 0 - 25 volumeTime  
+**I**: 26 - 51 deductionTime  
+**I**: 52 - 77 minimalDeduction  
+**I**: 78 - 103 maximalDeduction  
+**I**: 104 - 129 selectionStart  
+**I**: 130 - 155 selectionEnd  
 
-I: 156 - 181 volumeTime  
-I: 182 - 207 deductionTime  
-I: 208 - 233 minimalDeduction  
-I: 234 - 259 maximalDeduction  
-I: 260 - 285 selectionStart  
-I: 286 - 311 selectionEnd  
+**I**: 156 - 181 volumeTime  
+**I**: 182 - 207 deductionTime  
+**I**: 208 - 233 minimalDeduction  
+**I**: 234 - 259 maximalDeduction  
+**I**: 260 - 285 selectionStart  
+**I**: 286 - 311 selectionEnd  
 
-I: 312 - 337 volumeTime  
-I: 338 - 363 deductionTime  
-I: 364 - 389 minimalDeduction  
-I: 390 - 415 maximalDeduction  
-I: 416 - 441 selectionStart   
-I: 442 - 467 selectionEnd  
+**I**: 312 - 337 volumeTime  
+**I**: 338 - 363 deductionTime  
+**I**: 364 - 389 minimalDeduction  
+**I**: 390 - 415 maximalDeduction  
+**I**: 416 - 441 selectionStart   
+**I**: 442 - 467 selectionEnd  
 
-I: 468 - 493 volumeTime  
-I: 494 - 519 deductionTime  
-I: 520 - 545 minimalDeduction  
-I: 546 - 571 maximalDeduction  
-I: 572 - 597 selectionStart  
-I: 598 - 623 selectionEnd  
+**I**: 468 - 493 volumeTime  
+**I**: 494 - 519 deductionTime  
+**I**: 520 - 545 minimalDeduction  
+**I**: 546 - 571 maximalDeduction  
+**I**: 572 - 597 selectionStart  
+**I**: 598 - 623 selectionEnd  
 
 **Ch**: 1 - 26 volumeEnvelope  
 **Ch**: 27 - 52 deductionEnvelope  
