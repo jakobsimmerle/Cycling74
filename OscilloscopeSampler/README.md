@@ -1,5 +1,5 @@
-### **OscilloscopeSampler**
----
+## **OscilloscopeSampler**
+
 ![OscilloscopeSampler](resources/image_0.png)
 
 #### **1. Short overview**  
