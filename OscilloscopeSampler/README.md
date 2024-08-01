@@ -1,8 +1,8 @@
 ## **OscilloscopeSampler**
 
 ![OscilloscopeSampler](resources/image_0.png)
-
-#### **1. Short overview**  
+----
+#### **_1. Short overview_**  
 
 (C... Column)  
 1st C. - volumeTime  
