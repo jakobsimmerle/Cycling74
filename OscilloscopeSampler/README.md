@@ -5,7 +5,8 @@
 [========]
 
 #### Short overview  
-    C.. Column
+
+(C stands for Column)
 1st C - volumeTime  
 2nd C - deductionTime  
 3rd C - minimalDeduction  
